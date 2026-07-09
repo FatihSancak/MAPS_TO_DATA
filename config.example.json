@@ -1,0 +1,31 @@
+{
+  "source": "gosom",
+  "google_api_key": "GOOGLE_MAPS_API_KEY_BURAYA",
+  "default_location": "10115 Berlin, Germany",
+  "default_radius_km": 3,
+  "default_queries": [
+    "autoteile",
+    "kfz werkstatt"
+  ],
+  "language_code": "de",
+  "region_code": "DE",
+  "page_size": 20,
+  "max_pages_per_query": 3,
+  "fetch_emails_from_websites": false,
+  "email_pages": [
+    "/",
+    "/contact",
+    "/kontakt",
+    "/impressum",
+    "/about"
+  ],
+  "request_timeout_seconds": 12,
+  "overpass_limit": 120,
+  "overpass_timeout_seconds": 60,
+  "overpass_retry_delay_seconds": 3,
+  "gosom_use_docker": true,
+  "gosom_binary": "google_maps_scraper-1.16.1-windows-amd64.exe",
+  "gosom_depth": 1,
+  "gosom_fast_mode": true,
+  "gosom_exit_on_inactivity": "90s"
+}
