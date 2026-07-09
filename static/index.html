@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maps Lead Finder</title>
+    <link rel="stylesheet" href="/static/styles.css?v=3" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <form id="searchForm" class="panel">
+          <div class="header">
+            <div>
+              <h1>Maps Lead Finder</h1>
+              <p id="keyState">Config okunuyor...</p>
+            </div>
+            <button type="submit" id="runButton">Ara</button>
+          </div>
+
+          <label>
+            Posta kodu, adres veya şehir
+            <input id="location" name="location" placeholder="10115 Berlin, Germany" required />
+          </label>
+
+          <div class="grid">
+            <label>
+              Yarıçap (km)
+              <input id="radius" name="radius" type="number" min="1" max="50" step="1" required />
+            </label>
+            <label>
+              Kaynak
+              <select id="source" name="source">
+                <option value="osm">OpenStreetMap</option>
+                <option value="gosom">Google Scraper</option>
+                <option value="google">Google API</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="grid">
+            <label class="check">
+              <input id="fetchEmails" name="fetchEmails" type="checkbox" />
+              Web sitelerinden e-posta ara
+            </label>
+          </div>
+
+          <label>
+            Arama kriterleri
+            <textarea id="queries" name="queries" rows="6" placeholder="kfz werkstatt&#10;autoteile&#10;reifenservice"></textarea>
+          </label>
+
+          <div class="actions">
+            <a id="xlsxLink" class="ghost disabled" href="#">Excel</a>
+            <a id="pdfLink" class="ghost disabled" href="#">PDF</a>
+            <a id="csvLink" class="ghost disabled" href="#">CSV</a>
+            <a id="jsonLink" class="ghost disabled" href="#">JSON</a>
+            <span id="status"></span>
+          </div>
+        </form>
+
+        <section class="results">
+          <div class="resultsTop">
+            <strong id="resultCount">0 sonuç</strong>
+            <input id="filter" placeholder="Tabloda filtrele" />
+          </div>
+          <div class="tableWrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Firma</th>
+                  <th>Telefon</th>
+                  <th>Adres</th>
+                  <th>Web</th>
+                  <th>E-posta</th>
+                  <th>Km</th>
+                  <th>Puan</th>
+                </tr>
+              </thead>
+              <tbody id="rows">
+                <tr>
+                  <td colspan="7" class="empty">Henüz arama yapılmadı.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+    <div id="loadingOverlay" class="loadingOverlay" aria-hidden="true">
+      <div class="loaderBox" role="status" aria-live="polite">
+        <span class="spinner"></span>
+        <strong>Aranıyor</strong>
+        <p>Sonuçlar hazırlanana kadar bekleyin.</p>
+      </div>
+    </div>
+    <script src="/static/app.js?v=5"></script>
+  </body>
+</html>
