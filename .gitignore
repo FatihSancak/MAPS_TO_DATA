@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+
+outputs/
+config.json
+
+google_maps_scraper-*.exe
